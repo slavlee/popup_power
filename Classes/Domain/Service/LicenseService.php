@@ -33,7 +33,7 @@ class LicenseService
     {
         $licenseData = new LicenseData();
 
-        switch($scope) {
+        switch ($scope) {
             case Configuration::class:
                 if (ExtensionManagementUtility::isLoaded('popup_power_pro')) {
                     $licenseData->limit = 9999;
@@ -55,7 +55,7 @@ class LicenseService
     {
         $isValid = true;
 
-        switch($scope) {
+        switch ($scope) {
             case Configuration::class:
                 $service = GeneralUtility::makeInstance(ClosestConfigurationService::class);
                 $licenseData = $this->get($scope);

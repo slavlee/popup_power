@@ -1,3 +1,6 @@
+### Version 1.3.4
+- [BUGFIX] CGL: single_space_around_construct
+
 ### Version 1.3.3
 - [BUGFIX] Hide Popup Inner Container, when Popup is not shown
 
