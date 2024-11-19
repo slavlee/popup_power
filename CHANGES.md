@@ -1,3 +1,10 @@
+### Version dev-2.0.0-0
+- [IMPORTANT] Migrate ModuleTemplate view like https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/Backend/BackendModules/ModuleTemplate.html
+- [IMPORTANT] Replace ext_typoscript_setup.typoscript with ExtensionManagementUtility::addTypoScript
+- [IMPORTANT] Remove to add backend typoscript, because it is not recommended. The view folder path are automatically be found and targets to Resources/Private/Templates/Controller/action
+- [NOTICE] Replace GeneralUtiltiy::_GET with $request->getQueryParams
+- [BUGFIX] Dashboard: Check for configuration before calling event
+
 ### Version 1.3.4
 - [BUGFIX] CGL: single_space_around_construct
 

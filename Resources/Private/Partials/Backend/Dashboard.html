@@ -9,9 +9,9 @@
     </f:else>
 </f:if>
 <f:form action="save" method="POST" name="configuration" object="{configuration}" enctype="multipart/form-data">
-    <f:render partial="Form/GeneralSettings" arguments="{_all}" />
-    <f:render partial="Form/Layout" arguments="{_all}" />
-    <f:render partial="Form/PopupContent" arguments="{_all}" />
+    <f:render partial="Backend/Form/GeneralSettings" arguments="{_all}" />
+    <f:render partial="Backend/Form/Layout" arguments="{_all}" />
+    <f:render partial="Backend/Form/PopupContent" arguments="{_all}" />
     <div class="form-buttons">
         <f:form.hidden name="currentPageId" value="{currentPageId}" />
         <f:form.submit class="btn btn-primary" name="submit" value="{f:translate(key:'module_dashboard_form_submit', extensionName: 'popup_power')}" />

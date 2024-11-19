@@ -8,10 +8,10 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'support@slavlee.de',
     'author_company' => 'Slavlee',
     'state' => 'stable',
-    'version' => '1.3.4',
+    'version' => '2.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.0.0-13.0.99',
+            'typo3' => '12.4.0-13.4.99',
         ],
         'conflicts' => [
         ],

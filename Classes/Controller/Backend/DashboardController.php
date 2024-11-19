@@ -54,11 +54,14 @@ final class DashboardController extends ActionController
      */
     public function showAction(): ResponseInterface
     {
-        $currentPageId = (int)GeneralUtility::_GET('id');
+        $currentPageId = (int)$this->request->getQueryParams()['id'];
+
+        // Init module template
+        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
 
         // Gather info
-        $this->view->assign('currentPageId', $currentPageId);
-        $this->view->assign('noPageSelected', $currentPageId ? false : true);
+        $moduleTemplate->assign('currentPageId', $currentPageId);
+        $moduleTemplate->assign('noPageSelected', $currentPageId ? false : true);
 
         if ($currentPageId > 0) {
             $configuration = $this->configurationRepository->findByPid($currentPageId)->current();
@@ -73,34 +76,32 @@ final class DashboardController extends ActionController
                     // for form to override given setting
                     $configuration = GeneralUtility::makeInstance(Configuration::class);
                     $configuration->setPid($currentPageId);
-                    $this->view->assign('configuration', $configuration);
+                    $moduleTemplate->assign('configuration', $configuration);
                 }
                 // Get closest configuration to link to it
                 $rootlineIds = RootlineUtility::getPageIds($currentPageId);
                 $configurationClosest = $this->configurationRepository->findByRootline($rootlineIds)->current();
                 if ($configurationClosest) {
-                    $this->view->assign('pageClosest', $this->pageRepository->getPage($configurationClosest->getPid()));
+                    $moduleTemplate->assign('pageClosest', $this->pageRepository->getPage($configurationClosest->getPid()));
                 }
-                $this->view->assign('configurationClosest', $configurationClosest);
+                $moduleTemplate->assign('configurationClosest', $configurationClosest);
             } else {
-                $this->view->assign('configuration', $configuration);
+                $moduleTemplate->assign('configuration', $configuration);
             }
 
-            $this->view->assign('isProVersionInstalled', PopupPowerUtility::isProVersionInstalled());
-            $this->view->assign('popupContentPages', $this->popupContentRepository->findAll());
+            $moduleTemplate->assign('isProVersionInstalled', PopupPowerUtility::isProVersionInstalled());
+            $moduleTemplate->assign('popupContentPages', $this->popupContentRepository->findAll());
         }
 
-        /**
-         * @var AssignVarsForDashboardEvent $event
-         */
-        $event = $this->eventDispatcher->dispatch(new AssignVarsForDashboardEvent($configuration));
-        $this->view->assignMultiple($event->getFluidVars());
+        if ($configuration) {
+            /**
+             * @var AssignVarsForDashboardEvent $event
+             */
+            $event = $this->eventDispatcher->dispatch(new AssignVarsForDashboardEvent($configuration));
+            $moduleTemplate->assignMultiple($event->getFluidVars());
+        }
 
-        // Render template
-        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        $moduleTemplate->setContent($this->view->render());
-
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $moduleTemplate->renderResponse('Backend/Dashboard/Show');
     }
 
     /**

@@ -38,7 +38,7 @@ final class PopupController extends ActionController
 
         // if there is no configuration, then render nothing
         if (!$configurationClosest || $configurationClosest->getHidden() || !$configurationClosest->getPopupContent()) {
-            return $this->htmlResponse($this->view->render('Nothing'));
+            return $this->htmlResponse('');
         }
 
         $this->view->assign('configuration', $configurationClosest);

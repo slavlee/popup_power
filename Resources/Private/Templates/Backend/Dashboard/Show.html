@@ -4,7 +4,7 @@
     xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
-    <f:layout name="Default" />
+    <f:layout name="Module" />
 
     <f:section name="Content">
         <h1><f:translate key="module_dashboard_title" extensionName="popup_power" /></h1>
@@ -16,10 +16,10 @@
             <f:else>
                 <f:if condition="{configuration}">
                     <f:then>
-                        <f:render partial="Dashboard" arguments="{_all}" />
+                        <f:render partial="Backend/Dashboard" arguments="{_all}" />
                     </f:then>
                     <f:else>
-                        <f:render partial="DashboardBuyPro" arguments="{_all}" />
+                        <f:render partial="Backend/DashboardBuyPro" arguments="{_all}" />
                     </f:else>
                 </f:if>
             </f:else>
