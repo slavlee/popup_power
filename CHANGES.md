@@ -1,3 +1,6 @@
+### Version 2.0.0
+- [IMPORTANT] Merge branch dev-2.0.0
+
 ### Version dev-2.0.0-2
 - [BUGFIX] CGL Fixes
 
