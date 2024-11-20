@@ -1,3 +1,6 @@
+### Version dev-2.0.0-2
+- [BUGFIX] CGL Fixes
+
 ### Version dev-2.0.0-1
 - [BUGFIX] Error on virtual root
 
@@ -5,6 +8,7 @@
 - [IMPORTANT] Migrate ModuleTemplate view like https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/Backend/BackendModules/ModuleTemplate.html
 - [IMPORTANT] Replace ext_typoscript_setup.typoscript with ExtensionManagementUtility::addTypoScript
 - [IMPORTANT] Remove to add backend typoscript, because it is not recommended. The view folder path are automatically be found and targets to Resources/Private/Templates/Controller/action
+- [IMPORTANT] Discard Support PHP 8.1
 - [NOTICE] Replace GeneralUtiltiy::_GET with $request->getQueryParams
 - [BUGFIX] Dashboard: Check for configuration before calling event
 
