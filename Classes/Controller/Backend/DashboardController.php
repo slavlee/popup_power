@@ -63,6 +63,8 @@ final class DashboardController extends ActionController
         $moduleTemplate->assign('currentPageId', $currentPageId);
         $moduleTemplate->assign('noPageSelected', $currentPageId ? false : true);
 
+        $configuration = null;
+
         if ($currentPageId > 0) {
             $configuration = $this->configurationRepository->findByPid($currentPageId)->current();
 

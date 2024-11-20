@@ -32,6 +32,5 @@ The changelogs can be found inside the [CHANGES.md](CHANGES.md) file.
 [2]: https://t3templates.de/en/products
 
 ## 5 Todo
-- When select virtual root then this error appears:
-  - Slavlee\PopupPower\Event\AssignVarsForDashboardEvent::__construct(): Argument #1 ($configuration) must be of type Slavlee\PopupPower\Domain\Model\Configuration, null given, called in /www/htdocs/w012c697/001_Websites/TYPO3/typo12.insci.de/insci-typo312/vendor/slavlee/popup-power/Classes/Controller/Backend/DashboardController.php on line 96
+- nothing to do here
 

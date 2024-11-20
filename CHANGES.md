@@ -1,3 +1,6 @@
+### Version dev-2.0.0-1
+- [BUGFIX] Error on virtual root
+
 ### Version dev-2.0.0-0
 - [IMPORTANT] Migrate ModuleTemplate view like https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/Backend/BackendModules/ModuleTemplate.html
 - [IMPORTANT] Replace ext_typoscript_setup.typoscript with ExtensionManagementUtility::addTypoScript
