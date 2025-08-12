@@ -22,6 +22,25 @@ Download and install the [extension][1] with the extension manager module.
 - [Preview all features](https://popup-power.slavlee.de/demo)
 - [Buy the PRO Version](https://popup-power.slavlee.de/buy-pro)
 
+### 2.2 Configuration
+### 2.2.1 Preparation
+1. Create a folder named: Popups
+2. Create all popup pages below this folder. Every popup page has to be the new page type: Popup Power Content
+3. Create your Popup Power pages like normal TYPO3 pages
+
+### 2.2.2 Embed Popups on your page
+To embed a popup on your page, you need to create a new Popup Power configuration with the new backend module: **Popup Power**.
+You can create a popup for single pages, then you keep the toggle: *Extend to Subpages* inactive. Or you can create a popup for a whole page tree. Then you simply enable this toggle.
+
+Configure the popup for your needs and choose the right *Popup Power Content Page* on the last select field.
+
+**Save your configuration and you are done!**
+
+### 3 Upgrade extension
+1. Download and install the latest version
+2. Clear Injection cache
+3. Execute DB Analyzer
+
 ## Explore more
 If you are looking for awesome and easy to use TYPO3 templates and extensions, then visit: [T3 Templates][2]
 
