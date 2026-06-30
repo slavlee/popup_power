@@ -45,9 +45,5 @@ class ExtTables extends Base
                 'allowedTables' => '*',
             ],
         );
-
-        ExtensionManagementUtility::addUserTSConfig(
-            'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . PopupRegistry::PAGETYPES_POPUP_CONTENT . ')'
-        );
     }
 }
