@@ -1,24 +1,30 @@
-<f:if condition="{configurationClosest} && {pageClosest}">
-    <div class="alert alert-info">
-        <p class="m-0"><a href="{be:moduleLink(route: 'web_popuppower_dashboard', arguments: '{id:pageClosest.uid}')}"><f:translate key="module_dashboard_configuration_closest" extensionName="popup_power" arguments="{0: pageClosest.title, 1: pageClosest.uid}" /></a></p>
-    </div>
-</f:if>
-<f:if condition="{isProVersionInstalled}">
-    <f:else>
-        <p class="alert alert-warning"><f:link.external uri="https://popup-power.slavlee.de/free-vs-pro" target="_blank" class="fw-bold"><f:translate key="marketing_buypro" extensionName="popup_power"/></f:link.external></p>
-    </f:else>
-</f:if>
-<f:form action="save" method="POST" name="configuration" object="{configuration}" enctype="multipart/form-data">
-    <f:render partial="Backend/Form/GeneralSettings" arguments="{_all}" />
-    <f:render partial="Backend/Form/Layout" arguments="{_all}" />
-    <f:render partial="Backend/Form/PopupContent" arguments="{_all}" />
-    <div class="form-buttons">
-        <f:form.hidden name="currentPageId" value="{currentPageId}" />
-        <f:form.submit class="btn btn-primary" name="submit" value="{f:translate(key:'module_dashboard_form_submit', extensionName: 'popup_power')}" />
-    </div>
-    <f:if condition="{configuration.uid} > 0">
-        <div class="form-buttons mt-5">
-            <f:form.submit class="btn btn-danger" name="remove" value="{f:translate(key:'module_dashboard_form_remove', extensionName: 'popup_power')}" />
+<html
+   xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+   xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+   xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+   data-namespace-typo3-fluid="true">
+    <f:if condition="{configurationClosest} && {pageClosest}">
+        <div class="alert alert-info">
+            <p class="m-0"><a href="{be:moduleLink(route: 'web_popuppower_dashboard', arguments: '{id:pageClosest.uid}')}"><f:translate key="module_dashboard_configuration_closest" extensionName="popup_power" arguments="{0: pageClosest.title, 1: pageClosest.uid}" /></a></p>
         </div>
     </f:if>
-</f:form>
+    <f:if condition="{isProVersionInstalled}">
+        <f:else>
+            <p class="alert alert-warning"><f:link.external uri="https://popup-power.slavlee.de/free-vs-pro" target="_blank" class="fw-bold"><f:translate key="marketing_buypro" extensionName="popup_power"/></f:link.external></p>
+        </f:else>
+    </f:if>
+    <f:form action="save" method="POST" name="configuration" object="{configuration}" enctype="multipart/form-data">
+        <f:render partial="Backend/Form/GeneralSettings" arguments="{_all}" />
+        <f:render partial="Backend/Form/Layout" arguments="{_all}" />
+        <f:render partial="Backend/Form/PopupContent" arguments="{_all}" />
+        <div class="form-buttons">
+            <f:form.hidden name="currentPageId" value="{currentPageId}" />
+            <f:form.submit class="btn btn-primary" name="submit" value="{f:translate(key:'module_dashboard_form_submit', extensionName: 'popup_power')}" />
+        </div>
+        <f:if condition="{configuration.uid} > 0">
+            <div class="form-buttons mt-5">
+                <f:form.submit class="btn btn-danger" name="remove" value="{f:translate(key:'module_dashboard_form_remove', extensionName: 'popup_power')}" />
+            </div>
+        </f:if>
+    </f:form>
+</html>

@@ -1,3 +1,7 @@
+### Version upgrade-typo314-1
+- [TASK] Add Namespaces and Layout to Backend Templates
+- [TASK] Access to page uid
+
 ### Version upgrade-typo314-0
 - [TASK] Change dependency and Github actions
 - [TASK] Migrate user.tsconfig

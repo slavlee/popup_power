@@ -34,7 +34,7 @@ final class PopupController extends ActionController
      */
     public function showAction(): ResponseInterface
     {
-        $configurationClosest = $this->closestConfigurationService->get($GLOBALS['TSFE']->id);
+        $configurationClosest = $this->closestConfigurationService->get($this->request->getAttribute('frontend.page.information')->getId());
 
         // if there is no configuration, then render nothing
         if (!$configurationClosest || $configurationClosest->getHidden() || !$configurationClosest->getPopupContent()) {
